@@ -6,10 +6,10 @@ import io.vertx.sqlclient.SqlClient
 
 
 object Db {
-    val username = System.getenv("DATABASE_USERNAME") ?: "cats_admin"
-    val password = System.getenv("DATABASE_PASSWORD") ?: "abcd1234"
-    val database = System.getenv("DATABASE_NAME") ?: "cats_db"
-    val host = System.getenv("DATABASE_HOST") ?: "localhost"
+    val username = System.getenv("POSTGRES_USER") ?: "cats_admin"
+    val password = System.getenv("POSTGRES_PASSWORD") ?: "abcd1234"
+    val database = System.getenv("POSTGRES_DB_NAME") ?: "cats_db"
+    val host = System.getenv("POSTGRES_HOST") ?: "localhost"
 
 fun connect(vertx: Vertx): SqlClient {
     val connectOptions = PgConnectOptions()

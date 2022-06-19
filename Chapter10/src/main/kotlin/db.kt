@@ -3,11 +3,11 @@ import org.jetbrains.exposed.dao.IntIdTable
 import org.jetbrains.exposed.sql.Database
 
 object DB {
-    private val host = System.getenv("DB_HOST") ?: "localhost"
-    private val port = System.getenv("DB_PORT")?.toIntOrNull() ?: 5432
-    private val dbName = System.getenv("DB_NAME") ?: "cats_db"
-    private val dbUser = System.getenv("DB_USER") ?: "cats_admin"
-    private val dbPassword = System.getenv("DB_PASSWORD") ?: "abcd1234"
+    private val host = System.getenv("POSTGRES_HOST") ?: "localhost"
+    private val port = System.getenv("POSTGRES_PORT")?.toIntOrNull() ?: 5432
+    private val dbName = System.getenv("POSTGRES_DB_NAME") ?: "cats_db"
+    private val dbUser = System.getenv("POSTGRES_USER") ?: "cats_admin"
+    private val dbPassword = System.getenv("POSTGRES_PASSWORD") ?: "abcd1234"
     fun connect() = Database.connect(
         "jdbc:postgresql://$host:$port/$dbName",
         driver = "org.postgresql.Driver",
