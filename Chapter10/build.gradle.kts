@@ -1,16 +1,6 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm") version "1.6.0"
-    application
+    id("application")
     kotlin("plugin.serialization") version "1.6.0"
-}
-
-group = "me.soshin"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
 }
 
 val ktorVersion = "1.6.4"
@@ -25,14 +15,6 @@ dependencies {
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
 application {
-    mainClassName = "ServerKt"
+    mainClass.set("ServerKt")
 }
